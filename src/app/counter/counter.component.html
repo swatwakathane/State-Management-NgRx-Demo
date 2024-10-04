@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Component</title>
+</head>
+<body>
+    <div class="counter-container">
+        <h1>Counter</h1>
+        <div class="counter-display" id="counter">{{count$ | async}}</div>
+        <div class="button-container">
+            <button id="increment" (click)="increaseCount()">Increment</button>
+            <button id="decrement" (click)="decreaseCount()">Decrement</button>
+            <button id="reset" (click)="resetCount()">Reset</button>
+        </div>
+    </div>
+</body>
+</html>
