@@ -2,9 +2,9 @@ import { AsyncPipe } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { selectCount } from '../states/counter.selector';
-import { AppState } from '../states/app.state';
-import { decrement, increment, reset } from '../states/counter.action';
+import { selectCount } from '../store/counter.selector';
+import { AppState } from '../store/app.state';
+import { decrement, increment, reset } from '../store/counter.action';
 
 @Component({
   selector: 'app-counter',
