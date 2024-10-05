@@ -1,7 +1,7 @@
 import { AsyncPipe } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, take } from 'rxjs';
 import { selectCount } from '../store/counter.selector';
 import { AppState } from '../store/app.state';
 import { decrement, increment, reset } from '../store/counter.action';
@@ -23,8 +23,16 @@ export class CounterComponent {
     this.store.dispatch(increment());
   }
   decreaseCount() {
-      this.store.dispatch(decrement());
-    }
+    this.count$.pipe(take(1)).subscribe(count => {
+      if (count > 0) {
+        this.store.dispatch(decrement());
+      }
+      else {
+        alert('Counter can not be less than 0');
+      }
+    });
+  }
+
   resetCount() {
     this.store.dispatch(reset());
   }
